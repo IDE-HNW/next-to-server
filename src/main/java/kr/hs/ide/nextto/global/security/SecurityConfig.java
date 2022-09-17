@@ -72,6 +72,7 @@ public class SecurityConfig {
                 .authorizeExchange(exchange -> {
                     exchange.pathMatchers(HttpMethod.OPTIONS).permitAll()
                             .pathMatchers("/actuator/**").permitAll()
+                            .pathMatchers("/sign/**").permitAll()
                             .anyExchange().authenticated();
                 }).addFilterAt(new JwtFilter(jwtUtil), SecurityWebFiltersOrder.HTTP_BASIC)
                 .build();
