@@ -9,6 +9,10 @@ spring:
   sql:
     init:
       mode: never
+  rabbitmq:
+    username: next-to
+    password: saveThem
+    virtual-host: /
 
 logging:
   level:
@@ -17,3 +21,8 @@ logging:
 jwt:
   access-secret: ${ACCESS}
   refresh-secret: ${REFRESH}
+
+coolsms:
+  api: ${API}
+  secret: ${SECRET}
+  sender: ${SEND}
