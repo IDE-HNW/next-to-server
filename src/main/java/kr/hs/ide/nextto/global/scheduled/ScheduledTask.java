@@ -27,7 +27,7 @@ public class ScheduledTask {
     private final MemberRepository memberRepository;
     private final CoolSMSService coolSMSService;
 
-    @Scheduled(cron = "0 0 0 * * *")
+    @Scheduled(fixedDelay = 10000, initialDelay = 10000)
     public void task() {
         log.info("send");
         findUnRenewal(LocalDate.now().minusDays(1));
