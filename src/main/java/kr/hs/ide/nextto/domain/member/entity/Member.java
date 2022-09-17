@@ -1,6 +1,5 @@
 package kr.hs.ide.nextto.domain.member.entity;
 
-import kr.hs.ide.nextto.domain.detail.entity.MemberDetail;
 import kr.hs.ide.nextto.global.exception.BusinessException;
 import lombok.*;
 import org.springframework.data.annotation.Id;
@@ -28,7 +27,7 @@ public class Member implements UserDetails {
 
     private LocalDate renewalDate;
 
-    private MemberDetail memberDetail;
+    private Long detailId;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
