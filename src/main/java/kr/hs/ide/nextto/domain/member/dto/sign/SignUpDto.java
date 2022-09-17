@@ -8,6 +8,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.time.LocalDate;
+
 @Getter
 @AllArgsConstructor @NoArgsConstructor
 public class SignUpDto {
@@ -40,6 +42,7 @@ public class SignUpDto {
                 .detailId(memberDetail.getDetailId())
                 .username(username)
                 .password(passwordEncoder.encode(password))
+                .renewalDate(LocalDate.now())
                 .build();
     }
 }
