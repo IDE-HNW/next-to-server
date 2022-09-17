@@ -12,7 +12,7 @@ public class MemberDetail {
     @Id
     private Long detailId;
 
-    private String name;
+    private short age;
 
     private String emergencyContact;
 

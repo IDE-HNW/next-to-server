@@ -22,6 +22,10 @@ public class Member implements UserDetails {
     @Id
     private Long memberId;
 
+    private String username;
+
+    private String password;
+
     private LocalDate renewalDate;
 
     private MemberDetail memberDetail;
@@ -33,12 +37,12 @@ public class Member implements UserDetails {
 
     @Override
     public String getPassword() {
-        return null;
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return String.valueOf(memberId);
+        return username;
     }
 
     @Override
@@ -64,6 +68,12 @@ public class Member implements UserDetails {
     public static class NotExistsException extends BusinessException {
         public NotExistsException() {
             super(HttpStatus.NOT_FOUND, "회원이 존재하지 않습니다.");
+        }
+    }
+
+    public static class InvalidPasswordException extends BusinessException {
+        public InvalidPasswordException() {
+            super(HttpStatus.UNAUTHORIZED, "비밀번호가 틀렸습니다.");
         }
     }
 }
