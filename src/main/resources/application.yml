@@ -13,3 +13,7 @@ spring:
 logging:
   level:
     org.springframework.r2dbc: DEBUG
+
+jwt:
+  access-secret: ${ACCESS}
+  refresh-secret: ${REFRESH}
