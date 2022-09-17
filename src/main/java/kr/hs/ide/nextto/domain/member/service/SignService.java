@@ -2,12 +2,14 @@ package kr.hs.ide.nextto.domain.member.service;
 
 import kr.hs.ide.nextto.domain.detail.entity.MemberDetail;
 import kr.hs.ide.nextto.domain.detail.repository.MemberDetailRepository;
+import kr.hs.ide.nextto.domain.member.dto.ReissueDto;
 import kr.hs.ide.nextto.domain.member.dto.SignInDto;
 import kr.hs.ide.nextto.domain.member.dto.SignUpDto;
 import kr.hs.ide.nextto.domain.member.entity.Member;
 import kr.hs.ide.nextto.domain.member.repository.MemberRepository;
 import kr.hs.ide.nextto.domain.member.ro.LoginRO;
 import kr.hs.ide.nextto.domain.member.ro.RegistryRO;
+import kr.hs.ide.nextto.domain.member.ro.ReissueRO;
 import kr.hs.ide.nextto.global.jwt.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -53,5 +55,16 @@ public class SignService {
                     jwtUtil.generateRefreshToken(username)
             ));
         });
+    }
+
+    @Transactional(readOnly = true)
+    public Mono<ReissueRO> reissueToken(final ReissueDto reissueDto) {
+        String username = jwtUtil.extractUsernameFromToken(
+                reissueDto.getRefreshToken(), "refresh"
+        );
+        return memberRepository.findByUsername(username)
+                .switchIfEmpty(Mono.error(Member.NotExistsException::new))
+                .subscribeOn(Schedulers.boundedElastic())
+                .flatMap(member -> Mono.just(new ReissueRO(jwtUtil.generateAccessToken(username))));
     }
 }
