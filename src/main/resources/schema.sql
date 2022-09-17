@@ -1,17 +1,17 @@
-drop table if exists member_detail;
 drop table if exists member;
-
-create table member (
-    member_id SERIAL PRIMARY KEY,
-    renewal_date DATE NULL
-);
+drop table if exists member_detail;
 
 create table member_detail (
-    member_id SERIAL NOT NULL,
+    detail_id BIGSERIAL PRIMARY KEY,
     name VARCHAR(128) NOT NULL,
     emergency_contact VARCHAR(20) NOT NULL,
     road_address VARCHAR(255) NOT NULL,
-    detail_address VARCHAR(255) NOT NULL,
-    FOREIGN KEY (member_id) REFERENCES member,
-    PRIMARY KEY (member_id)
+    detail_address VARCHAR(255) NOT NULL
+);
+
+create table member (
+    member_id BIGSERIAL PRIMARY KEY,
+    renewal_date DATE NULL,
+    detail_id BIGINT NOT NULL,
+    FOREIGN KEY (detail_id) references member_detail on delete cascade
 );
