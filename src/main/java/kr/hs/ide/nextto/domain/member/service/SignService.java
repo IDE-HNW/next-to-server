@@ -2,9 +2,9 @@ package kr.hs.ide.nextto.domain.member.service;
 
 import kr.hs.ide.nextto.domain.detail.entity.MemberDetail;
 import kr.hs.ide.nextto.domain.detail.repository.MemberDetailRepository;
-import kr.hs.ide.nextto.domain.member.dto.ReissueDto;
-import kr.hs.ide.nextto.domain.member.dto.SignInDto;
-import kr.hs.ide.nextto.domain.member.dto.SignUpDto;
+import kr.hs.ide.nextto.domain.member.dto.sign.ReissueDto;
+import kr.hs.ide.nextto.domain.member.dto.sign.SignInDto;
+import kr.hs.ide.nextto.domain.member.dto.sign.SignUpDto;
 import kr.hs.ide.nextto.domain.member.entity.Member;
 import kr.hs.ide.nextto.domain.member.repository.MemberRepository;
 import kr.hs.ide.nextto.domain.member.ro.LoginRO;

@@ -1,8 +1,8 @@
 package kr.hs.ide.nextto.domain.member.controller;
 
-import kr.hs.ide.nextto.domain.member.dto.ReissueDto;
-import kr.hs.ide.nextto.domain.member.dto.SignInDto;
-import kr.hs.ide.nextto.domain.member.dto.SignUpDto;
+import kr.hs.ide.nextto.domain.member.dto.sign.ReissueDto;
+import kr.hs.ide.nextto.domain.member.dto.sign.SignInDto;
+import kr.hs.ide.nextto.domain.member.dto.sign.SignUpDto;
 import kr.hs.ide.nextto.domain.member.ro.LoginRO;
 import kr.hs.ide.nextto.domain.member.ro.RegistryRO;
 import kr.hs.ide.nextto.domain.member.ro.ReissueRO;

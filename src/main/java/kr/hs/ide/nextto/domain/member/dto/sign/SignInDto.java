@@ -1,4 +1,4 @@
-package kr.hs.ide.nextto.domain.member.dto;
+package kr.hs.ide.nextto.domain.member.dto.sign;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
