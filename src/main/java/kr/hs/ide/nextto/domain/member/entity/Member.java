@@ -29,6 +29,10 @@ public class Member implements UserDetails {
 
     private Long detailId;
 
+    public void setRenewalDate(LocalDate renewalDate) {
+        this.renewalDate = renewalDate;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Collections.singleton(new SimpleGrantedAuthority("PERMISSION"));
