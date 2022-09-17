@@ -1,0 +1,15 @@
+spring:
+  r2dbc:
+    url: ${URL}
+    username: ${USERNAME}
+    password: ${PASSWORD}
+    pool:
+      max-size: 20
+      validation-query: SELECT 1
+  sql:
+    init:
+      mode: always
+
+logging:
+  level:
+    org.springframework.r2dbc: DEBUG

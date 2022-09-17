@@ -1,4 +1,4 @@
-package hs.kr.ide.nextto;
+package kr.hs.ide.nextto;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
